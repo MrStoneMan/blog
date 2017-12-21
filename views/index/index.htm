@@ -1,0 +1,69 @@
+<?php $this->layout->nav();?>
+        <div class="container">
+            <div class="blog-header">
+                <h1 class="blog-title">
+                </h1>
+                <p class="lead blog-description">
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-sm-8 blog-main">
+                    <?php foreach ($article as $item):;?>
+                    <div class="jumbotron blog-post">
+                        <h3 class="blog-post-title">
+                            <a>
+                               <?php echo $item['title']; ?> 
+                            </a>
+                        </h3>
+                        <ul class="row list-inline">
+                            <li class="col-sm-2">
+                                <span class="glyphicon glyphicon-user">
+                                </span>
+                                朴义發
+                            </li>
+                            <li class="col-sm-2">
+                                <span class="glyphicon glyphicon-th-list">
+                                </span>
+                                <a href="<?php echo site_url('index/home/category/').$item['category_id']; ?>">
+                                   <?php echo $item['cateName']; ?> 
+                                </a>
+                            </li>
+                            <li class="col-sm-2">
+                                <span class="glyphicon glyphicon-tag">
+                                </span>
+                                <a href="<?php echo site_url('index/home/tag/').$item['tag_id']; ?>">
+                                   <?php echo $item['tagName']; ?> 
+                                </a>
+                            </li>
+                            <li class="col-sm-4">
+                                <span class="glyphicon glyphicon-time">
+                                </span>
+                                <?php echo $item['date']; ?> 
+                            </li>
+                        </ul>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <a class="thumbnail" href="#">
+                                    <img alt="image" style="height: 170px; width: 100%;" src="<?php echo $item['img']; ?>"
+                                    />
+                                </a>
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="caption">
+                                <?php echo $item['content']; ?> 
+                                </div>
+                                <a id="p-btn" href="" class="btn btn-info pull-right" role="button">
+                                    阅读更多
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endforeach;?>
+                    <!-- /.blog-post -->
+                    <nav>
+                        <?php echo $page; ?> 
+                    </nav>
+                </div>
+                <!-- /.blog-main -->
+<?php $this->layout->right();?>
+<?php $this->layout->footer();?>

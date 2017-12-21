@@ -1,0 +1,66 @@
+                <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+                    <div class="sidebar-module sidebar-module-inset">
+                        <h4>
+                            热门标签
+                        </h4>
+                        <ul class="" id="p-tag">
+                            <?php foreach ($tag as $item): ?>
+                            <li class="btn btn-small">
+                                <a type="button" href="<?php echo site_url("index/home/tag/") . $item['id'];?>">
+                                    <span class="glyphicon glyphicon-tag" aria-hidden="true">
+                                    </span>
+                                    <?php echo $item['name'].'('.$item['num'].')';?>
+                                </a>
+                            </li>
+                            <?php endforeach ?>
+                        </ul>
+                    </div>
+                    <div class="sidebar-module sidebar-module-inset">
+                        <h4>
+                            最新文章
+                        </h4>
+                        <ol class="list-unstyled">
+                            <?php foreach ($article as $item): ?>
+                            <li>
+                                <i class="glyphicon glyphicon-list-alt">
+                                </i>
+                                <a href="<?php echo site_url('index/article/index/') . $item['id']; ?>">
+                                    <?php echo $item['title'];?>
+                                </a>
+                            </li>
+                            <?php endforeach ?>
+                        </ol>
+                    </div>
+                    <div class="sidebar-module sidebar-module-inset">
+                        <h4>
+                            友情链接 
+                        </h4>
+                        <ol class="list-unstyled p-link">
+                            <li>
+                                <i class="glyphicon glyphicon-link">
+                                </i>
+                                <a href="#">
+                                    GitHub
+                                </a>
+                            </li>
+                            <li>
+                                <i class="glyphicon glyphicon-link">
+                                </i>
+                                <a href="#">
+                                    Twitter
+                                </a>
+                            </li>
+                            <li>
+                                <i class="glyphicon glyphicon-link">
+                                </i>
+                                <a href="#">
+                                    Facebook
+                                </a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.blog-sidebar -->
+            </div>
+            <!-- /.row -->
+        </div>

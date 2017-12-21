@@ -1,0 +1,73 @@
+        <footer class="blog-footer">
+            <p>
+                Blog template built for
+                <a href="#">
+                    Bootstrap
+                </a>
+                by
+                <a href="#">
+                    @mdo
+                </a>
+                .
+            </p>
+            <p>
+                <a href="#">
+                    Back to top
+                </a>
+            </p>
+        </footer>
+        <!-- Bootstrap core JavaScript==================================================-
+        -> 
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://cdn.bootcss.com/holder/2.9.4/holder.js">
+        </script>
+        <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+        -->
+        <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js">
+        </script>
+        <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js">
+        </script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+        -->
+        <script>
+            //alert($("#p-tag li a").length);
+            //$('#p-tag li a').addClass("tag-bgcolor-1");
+            var obj = $("#p-tag li a"); // obj
+            var objspan = $("#p-tag li a span"); // obj
+            var len = obj.length; // len
+            //alert(len);
+            var n = 4;
+            var str = 'tag-bgcolor-';
+            for (var i = 1; i <= len; i++) {
+                if (i % 4 == 0) {
+                    obj.eq(i - 1).addClass(str + 1);
+                    objspan.eq(i - 1).addClass(str + 1);
+                }
+                if (i % 4 == 1) {
+                    obj.eq(i - 1).addClass(str + 2);
+                    objspan.eq(i - 1).addClass(str + 2);
+                }
+                if (i % 4 == 2) {
+                    obj.eq(i - 1).addClass(str + 3);
+                    objspan.eq(i - 1).addClass(str + 3);
+
+                }
+                if (i % 4 == 3) {
+                    obj.eq(i - 1).addClass(str + 4);
+                    objspan.eq(i - 1).addClass(str + 4);
+                }
+            };
+        </script>
+        <script type="text/javascript">
+            var urlstr = location.href;  
+            $(".blog-nav a").each(function () {  
+                if ((urlstr) === $(this).attr('href')) {  
+                    $(this).addClass('active');
+                } else {  
+                    $(this).removeClass('active');  
+                }  
+            });  
+        </script>
+    </body>
+
+</html>
