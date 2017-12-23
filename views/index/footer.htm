@@ -68,6 +68,92 @@
                 }  
             });  
         </script>
+        <script type="text/javascript">
+            function getEmote(obj) {
+                var emote = $(obj).parent().parent().siblings('.emote-img');
+                var is_display = emote.css("display");
+                if (is_display == 'none') {
+                    var emote_img = 1;
+                } else {
+                    var emote_img = 0
+                }
+                if (emote_img) {
+                    emote.show();
+                    var alt = ['Kiss', 'Love', 'Yeah', '啊！', '背扭', '顶', '抖胸', '88', '汗', '瞌睡', '鲁拉', '拍砖', '揉脸', '生日快乐', '摊手', '睡觉', '瘫坐', '无聊', '星星闪', '旋转', '也不行', '郁闷', '正Music', '抓墙', '撞墙至死', '歪头', '戳眼', '飘过', '互相拍砖', '砍死你', '扔桌子', '少林寺', '什么？', '转头', '我爱牛奶', '我踢', '摇晃', '晕厥', '在笼子里', '震荡'];
+                    var str = '';
+                    for (var i = 1; i < 41; i++) {
+                        str += '<img src="http://baijunyao.com/statics/emote/tuzki/' + i + '.gif" title="' + alt[i - 1] + '">';
+                    };
+                    emote.html(str);
+                } else {
+                    emote.hide();
+                }
+            }
+            // 点击添加表情
+            $('html').on('click', '.emote-img img',
+            function(event) {
+                var str = $(this).prop("outerHTML"); //用来获取当前节点的html代码
+                //console.log($(this).parent().siblings("#area").append(str));
+                $(this).parent().siblings('.box-content').focus(); //.append(str);//在文字光标后面插入元素;
+                insertHtmlAtCaret(str); // 在文字前面插入元素
+                $(this).parents('.emote-img').hide();
+            });
+
+            /**
+     * 在textarea光标后插入内容
+     * @param  string  str 需要插入的内容
+     */
+            function insertHtmlAtCaret(str) {
+                var sel, range;
+                if (window.getSelection) {
+                    sel = window.getSelection();
+                    if (sel.getRangeAt && sel.rangeCount) {
+                        range = sel.getRangeAt(0);
+                        range.deleteContents();
+                        var el = document.createElement("div");
+                        el.innerHTML = str;
+                        var frag = document.createDocumentFragment(),
+                        node,
+                        lastNode;
+                        while ((node = el.firstChild)) {
+                            lastNode = frag.appendChild(node);
+                        }
+                        range.insertNode(frag);
+                        if (lastNode) {
+                            range = range.cloneRange();
+                            range.setStartAfter(lastNode);
+                            range.collapse(true);
+                            sel.removeAllRanges();
+                            sel.addRange(range);
+                        }
+                    }
+                } else if (document.selection && document.selection.type != "Control") {
+                    document.selection.createRange().pasteHTML(str);
+                }
+            }
+            // 删除提示和样式
+            function del_hint(obj) {
+                var word = $(obj).text();
+                if (word == '请先登录后发表评论' || word == '请先登录后回复评论') {
+                    $(obj).text('');
+                    $(obj).css('color', '#333');
+                }
+            }
+            function reply(obj) {
+                console.log($('.media-list'));
+                var boxTextarea = $('.media-list').find('.box-textarea');
+                if (boxTextarea.length == 1) {
+                    boxTextarea.remove();
+                }
+                //alert(boxTextarea.length);
+                //var aid=$(obj).attr('aid');
+                //var pid=$(obj).attr('pid');
+                //var username=$(obj).attr('username');
+                var images = $(".fa").attr("src");
+                var str = '<div class="box-textarea"><div class="box-content" contenteditable="true" onfocus="del_hint(this)">请先登录后发表评论</div><ul class="emote-submit"><li class="emote col-sm-10 col-xs-10"><img class="fa fa-smile-o" onclick="getEmote(this)" src="'+images+'"></li><li class="submit-button col-sm-2 col-xs-2"><input type="button" class="btn btn-info pull-right" value="评 论" aid="" pid="" onclick=""></li></ul><div class="emote-img "></div></div>';
+                $(obj).parents('.media-body').eq(0).append(str);
+            }
+        </script>
     </body>
 
 </html>

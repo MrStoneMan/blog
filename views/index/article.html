@@ -7,62 +7,163 @@
                 </p>
             </div>
             <div class="row">
+                <!-- 文本内容 -->
+                <?php foreach ($article as $item):;?>
                 <div class="col-sm-8 blog-main">
-                    <?php foreach ($article as $item):;?>
                     <div class="jumbotron blog-post">
-                        <h3 class="blog-post-title">
-                            <a>
-                               <?php echo $item['title']; ?> 
-                            </a>
-                        </h3>
+                        <h2 class="blog-post-title" style="text-align: center">
+                            <?php echo $item['title'];?>
+                        </h2>
                         <ul class="row list-inline">
-                            <li class="col-sm-2">
+                            <li class="col-sm-2  col-sx-2">
                                 <span class="glyphicon glyphicon-user">
                                 </span>
                                 朴义發
                             </li>
-                            <li class="col-sm-2">
+                            <li class="col-sm-4 col-sx-4">
                                 <span class="glyphicon glyphicon-th-list">
                                 </span>
-                                <a href="<?php echo site_url('index/home/category/').$item['category_id']; ?>">
-                                   <?php echo $item['cateName']; ?> 
+                                <a href="<?php echo site_url('index/home/category').$item['category_id'];?>" target="_blank">
+                                    <?php echo $item['cateName'];?>
                                 </a>
                             </li>
-                            <li class="col-sm-2">
+                            <li class="col-sm-3 col-sx-2">
                                 <span class="glyphicon glyphicon-tag">
                                 </span>
-                                <a href="<?php echo site_url('index/home/tag/').$item['tag_id']; ?>">
-                                   <?php echo $item['tagName']; ?> 
+                                <a href="<?php echo site_url('index/home/tag').$item['tag_id'];?>" target="_blank">
+                                    <?php echo $item['tagName'];?>
                                 </a>
                             </li>
-                            <li class="col-sm-4">
+                            <li class="col-sm-3 col-sx-4">
                                 <span class="glyphicon glyphicon-time">
                                 </span>
-                                <?php echo $item['date']; ?> 
+                                <?php echo $item['date'];?>
                             </li>
                         </ul>
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <a class="thumbnail" href="#">
-                                    <img alt="image" style="height: 170px; width: 100%;" src="<?php echo $item['img']; ?>"
-                                    />
-                                </a>
-                            </div>
-                            <div class="col-sm-7">
-                                <div class="caption">
-                                <?php echo $item['content']; ?> 
-                                </div>
-                                <a id="p-btn" href="" class="btn btn-info pull-right" role="button">
-                                    阅读更多
-                                </a>
-                            </div>
-                        </div>
+                        <hr/>
+                         <div class="content">
+                             <?php echo $item['content'];?>
+                         </div>
                     </div>
-                    <?php endforeach;?>
-                    <!-- /.blog-post -->
-                    <nav>
-                        <?php echo $page; ?> 
-                    </nav>
+                    <?php endforeach; ?>
+                    <!-- 文本内容结束 -->
+
+                    <!-- 评论 -->
+                    <div class="jumbotron blog-post">
+                        <ul class="media p-media">
+                            <li class="media">
+                                <div class="media-left" href="#">
+                                    <img class="media-object" src="https://baijunyao.com/uploads/avatar/2134.jpg"
+                                    alt="通用的占位符图像">
+                                </div>
+                                <div class="media-body">
+                                    <div class="box-textarea">
+                                        <div class="box-content" contenteditable="true" onfocus="del_hint(this)">
+                                            请先登录后发表评论
+                                        </div>
+                                        <ul class="emote-submit">
+                                            <li class="emote col-sm-10 col-xs-10">
+                                                <img class="fa fa-smile-o" onclick="getEmote(this)" src="<?php echo site_url().'/source/index/img/emote.png';?>">
+                                            </li>
+                                            <li class="submit-button col-sm-2 col-xs-2">
+                                                <input type="button" class="btn btn-info pull-right" value="评 论" aid=""
+                                                pid="" onclick="">
+                                            </li>
+                                        </ul>
+                                        <div class="emote-img ">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <hr>
+                        <ul class="media p-media">
+                            <li class="common-left col-sm-10 col-xs-10">
+                                最新评论
+                            </li>
+                            <li class="common-right col-sm-2 col-xs-2">
+                                共0评论
+                            </li>
+                        </ul>
+                        <hr>
+                        <ul class="media-list">
+                            <li class="media">
+                                <div class="media-left">
+                                    <img class="media-object" src="http://www.runoob.com/wp-content/uploads/2014/06/64.jpg"
+                                    alt="通用的占位符图像">
+                                </div>
+                                <div class="media-body">
+                                    <p class="p-comment">
+                                        文本 ：随机
+                                    </p>
+                                    <span class="p-time">
+                                        2017-08-17 18:03:54
+                                    </span>
+                                    <span class="p-reply" onclick="reply(this)">
+                                        回复
+                                    </span>
+                                    </p>
+                                    <div class="media">
+                                        <div class="media-left" href="#">
+                                            <img class="media-object" src="http://www.runoob.com/wp-content/uploads/2014/06/64.jpg"
+                                            alt="通用的占位符图像">
+                                        </div>
+                                        <div class="media-body">
+                                            <p class="p-comment">
+                                                文本 ：随机
+                                            </p>
+                                            <span class="p-time">
+                                                2017-08-17 18:03:54
+                                            </span>
+                                            <span class="p-reply" onclick="reply(this)">
+                                                回复
+                                            </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <!-- 嵌套的媒体对象 -->
+                                    <div class="media">
+                                        <div class="media-left" href="#">
+                                            <img class="media-object" src="http://www.runoob.com/wp-content/uploads/2014/06/64.jpg"
+                                            alt="通用的占位符图像">
+                                        </div>
+                                        <div class="media-body">
+                                            <p class="p-comment">
+                                                文本 ：随机
+                                            </p>
+                                            <span class="p-time">
+                                                2017-08-17 18:03:54
+                                            </span>
+                                            <span class="p-reply" onclick="reply(this)">
+                                                回复
+                                            </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <div class="media-left" href="#">
+                                    <img class="media-object" src="http://www.runoob.com/wp-content/uploads/2014/06/64.jpg"
+                                    alt="通用的占位符图像">
+                                </div>
+                                <div class="media-body">
+                                    <p class="p-comment">
+                                        文本 ：随机
+                                    </p>
+                                    <span class="p-time">
+                                        2017-08-17 18:03:54
+                                    </span>
+                                    <span class="p-reply" onclick="reply(this)">
+                                        回复
+                                    </span>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- 评论结束 -->
+                    <!-- /.blog-article -->
                 </div>
                 <!-- /.blog-main -->
 <?php $this->layout->right();?>
