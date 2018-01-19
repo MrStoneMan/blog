@@ -48,7 +48,7 @@
         </style>
     </head>
     
-    <body>
+    <body style="">
         <div class="blog-masthead navbar-fixed-top">
             <div class="container">
                 <nav class="blog-nav">
@@ -60,6 +60,27 @@
                         <?php echo $item['name']?>
                     </a>
                     <?php endforeach ?>
+                    <a class="blog-nav-item pull-right" data-toggle="modal" data-target="#login" style="padding-right:0px;outline:none;" href="" >
+                       登陆 
+                    </a>
+
                 </nav>
             </div>
         </div>
+        <!-- 模态框 -->
+        <!-- Modal -->
+        <div class="modal fade" id="login" role="dialog" style="overflow:scroll width:700px;";>
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span  class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </span>
+                        <h4 style="text-align:center" class="modal-title" id="myModalLabel">第三方登陆</h4>
+                    </div>
+                    <div class="modal-body">
+                        <a href=""><img src="http://127.0.0.1/uploads/image/QQ.png" alt="QQ登录" title="QQ登录"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 模态框结束 -->
