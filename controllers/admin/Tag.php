@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * 后台标签控制器
  */
-class Tag extends MY_Controller{
+class Tag extends AdminBase{
     public function __construct()
     {
         parent::__construct(); 

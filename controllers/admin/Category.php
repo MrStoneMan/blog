@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * 后台分类控制器
  */
-class Category extends MY_Controller{
+class Category extends AdminBase{
     public function __construct()
     {
         parent::__construct(); 

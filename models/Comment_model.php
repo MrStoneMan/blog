@@ -1,15 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class User_model extends CI_Model
+class Comment_model extends CI_Model
 {
     /**
      * 查找数据
      */
      public function byConditionsGetSelect($conditions=array())
      {
-        $data = $this->db->where($conditions)->get('user')->result_array();
+        $data = $this->db->where($conditions)->get('comment')->result_array();
+        //echo $this->db->last_query();exit;
         return $data;
-    
      }
 
     /**
@@ -17,16 +17,8 @@ class User_model extends CI_Model
      */
     public function add($data)
     {
-        $result = $this->db->insert('user',$data);
+        $this->db->insert('comment',$data);
         return $this->db->insert_id();
-    }
-
-    /**
-     * 编辑数据
-     */
-    public function byConditionsGetUpdate($conditions,$data)
-    {
-        $this->db->update('user', $data, $conditions);
     }
 
 
@@ -35,7 +27,7 @@ class User_model extends CI_Model
      */
     public function byConditionsGetDelete($conditions)
     {
-        $this->db->delete('user', $conditions);
+        $this->db->delete('comment', $conditions);
     }
 
 }

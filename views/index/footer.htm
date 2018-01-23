@@ -131,9 +131,13 @@
                     document.selection.createRange().pasteHTML(str);
                 }
             }
+            // trim
+            function myTrim(x) {
+                return x.replace(/^\s+|\s+$/gm,'');
+            }
             // 删除提示和样式
             function del_hint(obj) {
-                var word = $(obj).text();
+                var word = myTrim($(obj).text());
                 if (word == '请先登录后发表评论' || word == '请先登录后回复评论') {
                     $(obj).text('');
                     $(obj).css('color', '#333');
@@ -146,13 +150,13 @@
                     boxTextarea.remove();
                 }
                 //alert(boxTextarea.length);
-                //var aid=$(obj).attr('aid');
-                //var pid=$(obj).attr('pid');
-                //var username=$(obj).attr('username');
+                var aid=$(obj).attr('aid');
+                var pid=$(obj).attr('pid');
                 var images = $(".fa").attr("src");
-                var str = '<div class="box-textarea"><div class="box-content" contenteditable="true" onfocus="del_hint(this)">请先登录后发表评论</div><ul class="emote-submit"><li class="emote col-sm-10 col-xs-10"><img class="fa fa-smile-o" onclick="getEmote(this)" src="'+images+'"></li><li class="submit-button col-sm-2 col-xs-2"><input type="button" class="btn btn-info pull-right" value="评 论" aid="" pid="" onclick=""></li></ul><div class="emote-img "></div></div>';
+                var str = '<div class="box-textarea"><div class="box-content" contenteditable="true" onfocus="del_hint(this)">请先登录后发表评论</div><ul class="emote-submit"><li class="emote col-sm-10 col-xs-10"><img class="fa fa-smile-o" onclick="getEmote(this)" src="'+images+'"></li><li class="submit-button col-sm-2 col-xs-2"><input type="button" class="btn btn-info pull-right" value="评 论" aid="'+aid+'" pid="'+pid+'" onclick="comment(this)"></li></ul><div class="emote-img "></div></div>';
                 $(obj).parents('.media-body').eq(0).append(str);
             }
+
         </script>
     </body>
 

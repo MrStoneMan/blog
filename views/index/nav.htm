@@ -8,6 +8,7 @@
         <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
         <meta name="description" content="" />
         <meta name="author" content="" />
+        <meta htpp-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <title>
             Blog
         </title>
@@ -60,10 +61,21 @@
                         <?php echo $item['name']?>
                     </a>
                     <?php endforeach ?>
-                    <a class="blog-nav-item pull-right" data-toggle="modal" data-target="#login" style="padding-right:0px;outline:none;" href="" >
-                       登陆 
-                    </a>
 
+                    <?php if( empty($this->session->userdata("nickname")) && empty($this->session->userdata("userid"))): ?>
+                    <a class="blog-nav-item pull-right" data-toggle="modal" data-target="#login" style="padding-right:0px;outline:none;" href="" >
+                       登录 
+                    </a>
+                    <?php else: ?>
+                    <a class="blog-nav-item pull-right" href="<?php echo site_url('index/oauth/logout')?>">
+                       退出 
+                    </a>
+                    <a class="blog-nav-item pull-right">
+                       <?php echo $this->session->userdata("nickname"); ?>
+                    </a>
+                    <a class="pull-right"><img  src="<?php echo 'http://127.0.0.1/uploads/avatar/'.$this->session->userdata("userid").'.jpg';?>" style="display:block">
+                    </a>
+                    <?php endif ?>
                 </nav>
             </div>
         </div>
@@ -78,9 +90,10 @@
                         <h4 style="text-align:center" class="modal-title" id="myModalLabel">第三方登陆</h4>
                     </div>
                     <div class="modal-body">
-                        <a href=""><img src="http://127.0.0.1/uploads/image/QQ.png" alt="QQ登录" title="QQ登录"></a>
+                        <a href="<?php echo site_url('index/oauth/qq_login');?>"><img src="http://127.0.0.1/uploads/image/QQ.png" alt="QQ登录" title="QQ登录"></a>
                     </div>
                 </div>
             </div>
         </div>
         <!-- 模态框结束 -->
+
