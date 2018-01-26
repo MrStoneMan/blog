@@ -82,7 +82,7 @@
                     var alt = ['Kiss', 'Love', 'Yeah', '啊！', '背扭', '顶', '抖胸', '88', '汗', '瞌睡', '鲁拉', '拍砖', '揉脸', '生日快乐', '摊手', '睡觉', '瘫坐', '无聊', '星星闪', '旋转', '也不行', '郁闷', '正Music', '抓墙', '撞墙至死', '歪头', '戳眼', '飘过', '互相拍砖', '砍死你', '扔桌子', '少林寺', '什么？', '转头', '我爱牛奶', '我踢', '摇晃', '晕厥', '在笼子里', '震荡'];
                     var str = '';
                     for (var i = 1; i < 41; i++) {
-                        str += '<img src="http://127.0.0.1/uploads/emote/' + i + '.gif" title="' + alt[i - 1] + '">';
+                        str += '<img src="<?php echo site_url();?>uploads/emote/' + i + '.gif" title="' + alt[i - 1] + '">';
                     };
                     emote.html(str);
                 } else {
@@ -152,8 +152,9 @@
                 //alert(boxTextarea.length);
                 var aid=$(obj).attr('aid');
                 var pid=$(obj).attr('pid');
+                var parent_name=$(obj).attr('parent_name');
                 var images = $(".fa").attr("src");
-                var str = '<div class="box-textarea"><div class="box-content" contenteditable="true" onfocus="del_hint(this)">请先登录后发表评论</div><ul class="emote-submit"><li class="emote col-sm-10 col-xs-10"><img class="fa fa-smile-o" onclick="getEmote(this)" src="'+images+'"></li><li class="submit-button col-sm-2 col-xs-2"><input type="button" class="btn btn-info pull-right" value="评 论" aid="'+aid+'" pid="'+pid+'" onclick="comment(this)"></li></ul><div class="emote-img "></div></div>';
+                var str = '<div class="box-textarea"><div class="box-content" contenteditable="true" onfocus="del_hint(this)">请先登录后发表评论</div><ul class="emote-submit"><li class="emote col-sm-10 col-xs-10"><img class="fa fa-smile-o" onclick="getEmote(this)" src="'+images+'"></li><li class="submit-button col-sm-2 col-xs-2"><input type="button" class="btn btn-info pull-right" value="评 论" aid="'+aid+'" pid="'+pid+'" parent_name="'+parent_name+'" onclick="comment(this)"></li></ul><div class="emote-img "></div></div>';
                 $(obj).parents('.media-body').eq(0).append(str);
             }
 

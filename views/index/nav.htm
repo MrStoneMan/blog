@@ -73,7 +73,7 @@
                     <a class="blog-nav-item pull-right">
                        <?php echo $this->session->userdata("nickname"); ?>
                     </a>
-                    <a class="pull-right"><img  src="<?php echo 'http://127.0.0.1/uploads/avatar/'.$this->session->userdata("userid").'.jpg';?>" style="display:block">
+                    <a class="pull-right"><img  src="<?php echo site_url().'/uploads/avatar/'.$this->session->userdata("userid").'.jpg';?>" style="display:block">
                     </a>
                     <?php endif ?>
                 </nav>
@@ -90,7 +90,7 @@
                         <h4 style="text-align:center" class="modal-title" id="myModalLabel">第三方登陆</h4>
                     </div>
                     <div class="modal-body">
-                        <a href="<?php echo site_url('index/oauth/qq_login');?>"><img src="http://127.0.0.1/uploads/image/QQ.png" alt="QQ登录" title="QQ登录"></a>
+                        <a href="<?php echo site_url('index/oauth/qq_login');?>"><img src="<?php echo site_url().'uploads/image/QQ.png';?>" alt="QQ登录" title="QQ登录"></a>
                     </div>
                 </div>
             </div>

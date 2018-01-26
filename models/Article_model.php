@@ -8,7 +8,6 @@ class Article_model extends CI_Model
      public function byConditionsGetSelect($filed = null, $table = null,  $join = null ,$conditions=array(), $order = null,$group = null, $offset = null, $limit = null)
      {
         $this->load->library('DbConditionUtil');
-        $this->load->library('DbConditionUtil');
 		$this->dbconditionutil->whereArray($conditions);
 		$conditions = $this->dbconditionutil->getConditions();
 

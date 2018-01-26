@@ -13,6 +13,15 @@ class User_model extends CI_Model
      }
 
     /**
+     * 查找数据in
+     */
+     public function byConditionsGetSelectIn($filed,$conditions)
+     {
+        $data = $this->db->where_in($filed,$conditions)->get('user')->result_array();
+        return $data;
+     }
+
+    /**
      * 添加数据
      */
     public function add($data)

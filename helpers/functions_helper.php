@@ -26,12 +26,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      */
     function debug()                                                                      
     {
-        echo "<pre style='padding:5px;background-color:#000;color:#f5f5f5'>";
+        echo "<pre style='font-size:15px;padding:5px;background-color:#000;color:#f5f5f5'>";
         $argsnum = func_num_args();
         $argslist = func_get_args();
         for ($i = 0; $i < $argsnum; $i++){
         echo "<pre>";
-        var_dump($argslist[$i]);
+        print_r($argslist[$i]);
         }   
     }
 
