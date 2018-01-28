@@ -14,9 +14,9 @@ class Home extends CI_Controller{
         $this->load->library('layout');
         $this->load->model("Article_model");
         $conditions = array();
-        $url = base_url().'index/home/index';
-        $offset = $this->uri->segment(4);
-        $segment = 4;
+        $url = base_url().'home/index';
+        $offset = $this->uri->segment(3);
+        $segment = 3;
         // 分页
         $base_url = $url;
         $per_page = 3;
@@ -46,11 +46,11 @@ class Home extends CI_Controller{
         // 加载模型接受参数
         $this->load->library('layout');
         $this->load->model("Article_model");
-        $tag_id = $this->uri->segment(4);
+        $tag_id = $this->uri->segment(3);
         $conditions = 'bl_article.tag_id = '.$tag_id;
-        $url = base_url().'index/home/tag/'.$tag_id.'/page';
-        $offset = $this->uri->segment(6);
-        $segment = 6;
+        $url = base_url().'home/tag/'.$tag_id.'/page';
+        $offset = $this->uri->segment(5);
+        $segment = 5;
         // 分页
         $base_url = $url;
         $per_page = 5;
@@ -115,11 +115,11 @@ class Home extends CI_Controller{
         // 加载模型接受参数
         $this->load->library('layout');
         $this->load->model("Article_model");
-        $category_id = $this->uri->segment(4);
+        $category_id = $this->uri->segment(3);
         $conditions = 'bl_article.category_id = '.$category_id;
-        $url = base_url().'index/home/category/'.$category_id.'/page';
-        $offset = $this->uri->segment(6);
-        $segment = 6;
+        $url = base_url().'home/category/'.$category_id.'/page';
+        $offset = $this->uri->segment(5);
+        $segment = 5;
         // 分页
         $base_url = $url;
         $per_page = 5;

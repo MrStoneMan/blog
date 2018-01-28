@@ -53,11 +53,11 @@
         <div class="blog-masthead navbar-fixed-top">
             <div class="container">
                 <nav class="blog-nav">
-                    <a class="blog-nav-item" href="<?php echo site_url('index/home');?>">
+                    <a class="blog-nav-item" href="<?php echo site_url();?>">
                        首页 
                     </a>
                     <?php foreach ($cates as $item) :?>
-                    <a class="blog-nav-item" href="<?php echo site_url('index/home/category/'.$item['id']);?>">
+                    <a class="blog-nav-item" href="<?php echo site_url('home/category/'.$item['id']);?>">
                         <?php echo $item['name']?>
                     </a>
                     <?php endforeach ?>
@@ -67,7 +67,7 @@
                        登录 
                     </a>
                     <?php else: ?>
-                    <a class="blog-nav-item pull-right" href="<?php echo site_url('index/oauth/logout')?>">
+                    <a class="blog-nav-item pull-right" href="<?php echo site_url('oauth/logout')?>">
                        退出 
                     </a>
                     <a class="blog-nav-item pull-right">
@@ -90,7 +90,7 @@
                         <h4 style="text-align:center" class="modal-title" id="myModalLabel">第三方登陆</h4>
                     </div>
                     <div class="modal-body">
-                        <a href="<?php echo site_url('index/oauth/qq_login');?>"><img src="<?php echo site_url().'uploads/image/QQ.png';?>" alt="QQ登录" title="QQ登录"></a>
+                        <a href="<?php echo site_url('oauth/qq_login');?>"><img src="<?php echo site_url().'uploads/image/QQ.png';?>" alt="QQ登录" title="QQ登录"></a>
                     </div>
                 </div>
             </div>

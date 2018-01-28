@@ -6,7 +6,7 @@
                         <ul class="" id="p-tag">
                             <?php foreach ($tag as $item): ?>
                             <li class="btn btn-small">
-                                <a type="button" href="<?php echo site_url("index/home/tag/") . $item['id'];?>">
+                                <a type="button" href="<?php echo site_url("home/tag/") . $item['id'];?>">
                                     <span class="glyphicon glyphicon-tag" aria-hidden="true">
                                     </span>
                                     <?php echo $item['name'].'('.$item['num'].')';?>
@@ -24,7 +24,7 @@
                             <li>
                                 <i class="glyphicon glyphicon-list-alt">
                                 </i>
-                                <a href="<?php echo site_url('index/article/index/') . $item['id']; ?>">
+                                <a href="<?php echo site_url('article/index/') . $item['id']; ?>">
                                     <?php echo $item['title'];?>
                                 </a>
                             </li>

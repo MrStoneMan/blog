@@ -24,14 +24,14 @@
                             <li class="col-sm-2">
                                 <span class="glyphicon glyphicon-th-list">
                                 </span>
-                                <a href="<?php echo site_url('index/home/category/').$item['category_id']; ?>">
+                                <a href="<?php echo site_url('home/category/').$item['category_id']; ?>">
                                    <?php echo $item['cateName']; ?> 
                                 </a>
                             </li>
                             <li class="col-sm-2">
                                 <span class="glyphicon glyphicon-tag">
                                 </span>
-                                <a href="<?php echo site_url('index/home/tag/').$item['tag_id']; ?>">
+                                <a href="<?php echo site_url('home/tag/').$item['tag_id']; ?>">
                                    <?php echo $item['tagName']; ?> 
                                 </a>
                             </li>
@@ -52,7 +52,7 @@
                                 <div class="caption">
                                 <?php echo $item['content']; ?> 
                                 </div>
-                                <a id="p-btn" href="<?php echo site_url('index/article/index/').$item['id']; ?>" class="btn btn-info pull-right" role="button">
+                                <a id="p-btn" href="<?php echo site_url('article/index/').$item['id']; ?>" class="btn btn-info pull-right" role="button">
                                     阅读更多
                                 </a>
                             </div>

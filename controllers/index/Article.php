@@ -10,7 +10,7 @@ class Article extends CI_Controller{
     public function index()
     {
         // 详情
-        $id = $this->uri->segment(4);
+        $id = $this->uri->segment(3);
         $this->load->library('layout.php');
         $this->load->model("Article_model");
         $filed = 'bl_article.id,bl_article.content, bl_article.title, bl_article.is_publish, bl_article.tag_id, bl_article.category_id, bl_article.create_time, bl_article.update_time, bl_tag.name as tagName, bl_category.name as cateName';
