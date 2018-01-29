@@ -59,4 +59,5 @@ $route['home/category/(\d+)'] = 'index/home/category/$1';
 $route['home/tag/(\d+)'] = 'index/home/tag/$1';
 $route['article/index/(\d+)'] = 'index/article/index/$1';
 $route['oauth/qq_login'] = 'index/oauth/qq_login';
+$route['oauth/logout'] = 'index/oauth/logout';
 $route['comments/add'] = 'index/comments/add';

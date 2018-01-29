@@ -5,7 +5,7 @@
      * 默认开启get_user_info模块 
      * **/ 
     $config['qq_inc_info'] = array( 
-        'appid' => '101453285', 
-        'appkey' => 'e62333d8c16783c50876930c68b8b449', 
-        'callback' => 'http://127.0.0.1/index/oauth' 
+        'appid' => '101458644', 
+        'appkey' => 'f540dedf93e5679751bcfdc59a6442fc', 
+        'callback' => 'http://www.piaoyifa.com/oauth' 
     ); 
