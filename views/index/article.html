@@ -53,8 +53,8 @@
                         <ul class="media p-media">
                             <li class="media">
                                 <div class="media-left" href="#">
-                                    <img class="media-object" src="<?php echo site_url();?>/uploads/avatar/<?php echo $this->session->userdata('userid');?>.jpg"
-                                    alt="通用的占位符图像">
+                                    <img class="media-object" src="<?php echo site_url();?>/uploads/avatar/<?php echo !empty($this->session->userdata('userid')) ? $this->session->userdata('userid') : 'default';?>.jpg"
+                                    alt="">
                                 </div>
                                 <div class="media-body">
                                     <div class="box-textarea">
