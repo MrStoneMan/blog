@@ -7,8 +7,6 @@
                             <?php foreach ($tag as $item): ?>
                             <li class="btn btn-small">
                                 <a type="button" href="<?php echo site_url("home/tag/") . $item['id'];?>">
-                                    <span class="glyphicon glyphicon-tag" aria-hidden="true">
-                                    </span>
                                     <?php echo $item['name'].'('.$item['num'].')';?>
                                 </a>
                             </li>
