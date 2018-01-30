@@ -36,27 +36,15 @@
                             友情链接 
                         </h4>
                         <ol class="list-unstyled p-link">
+                            <?php foreach ($link as $item): ;?>
                             <li>
                                 <i class="glyphicon glyphicon-link">
                                 </i>
-                                <a href="#">
-                                    GitHub
+                                <a href="<?php echo $item['href'];?>">
+                                    <?php echo $item['name'];?>
                                 </a>
                             </li>
-                            <li>
-                                <i class="glyphicon glyphicon-link">
-                                </i>
-                                <a href="#">
-                                    Twitter
-                                </a>
-                            </li>
-                            <li>
-                                <i class="glyphicon glyphicon-link">
-                                </i>
-                                <a href="#">
-                                    Facebook
-                                </a>
-                            </li>
+                            <?php endforeach ;?>
                         </ol>
                     </div>
                 </div>

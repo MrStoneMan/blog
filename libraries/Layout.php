@@ -24,6 +24,7 @@ class Layout
         // 标签信息
         $this->CI->load->model("Tag_model");
         $this->CI->load->model("Article_model");
+        $this->CI->load->model("Link_model");
         $data['tag'] = $this->CI->Tag_model->byConditionsGetSelect();
         foreach ($data['tag'] as $k => $v){
             $conditions = array(
@@ -34,6 +35,8 @@ class Layout
         
         // 最新文章
         $data['article'] = $this->CI->Article_model->byConditionsGetSelect('*','bl_article','','','id desc','','',5);
+
+        $data['link'] = $this->CI->Link_model->byConditionsGetSelect();
         $this->CI->load->view('index/tag.htm',$data);
     }
 

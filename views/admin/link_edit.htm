@@ -1,0 +1,78 @@
+				<div class="main-content">
+					<div class="breadcrumbs" id="breadcrumbs">
+						<script type="text/javascript">
+							try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+						</script>
+
+						<ul class="breadcrumb">
+							<li>
+								<i class="icon-home home-icon"></i>
+								<a href="#">首页</a>
+							</li>
+							<li class="active">友链管理</li>
+						</ul><!-- .breadcrumb -->
+					</div>
+
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+							    友链编辑	
+								<small>
+									<i class="icon-double-angle-right"></i>
+									查看
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+								<form class="form-horizontal" role="form" method="post" action="<?php echo site_url('admin/link/edit');?>">
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 友链名称</label>
+										<div class="col-sm-4">
+                                        <input type="text" id="form-field-1" name="name" value="<?php echo $link[0]['name'];?>" placeholder="name" class="col-xs-12 col-sm-12" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 友链地址</label>
+										<div class="col-sm-4">
+                                        <input type="text" id="form-field-1" name="href" value="<?php echo $link[0]['href'];?>" placeholder="href" class="col-xs-12 col-sm-12" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 友链排序</label>
+										<div class="col-sm-4">
+                                        <input type="text" id="form-field-1" name="order" value="<?php echo $link[0]['order_sort'];?>" placeholder="order" class="col-xs-12 col-sm-12" />
+										</div>
+									</div>
+                                    <input type="hidden" id="form-field-1" name="id" value="<?php echo $link[0]['id'];?>" placeholder="name" class="col-xs-12 col-sm-12" />
+                                    <div class="clearfix form-actions">
+                                        <div class="col-md-offset-3 col-md-9">
+                                            <button class="btn btn-info" type="submit">
+                                                <i class="icon-ok bigger-110"></i>
+                                                提交
+                                            </button>
+
+                                            &nbsp; &nbsp; &nbsp;
+                                            <button class="btn" type="reset">
+                                                <i class="icon-undo bigger-110"></i>
+                                               重置 
+                                            </button>
+                                        </div>
+                                    </div>
+
+									<div class="space-4"></div>
+								</form>
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div><!-- /.main-content -->
+			</div><!-- /.main-container-inner -->
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="icon-double-angle-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+</body>
+</html>
