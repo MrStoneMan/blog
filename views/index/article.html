@@ -134,48 +134,5 @@
                     <!-- /.blog-article -->
                 </div>
                 <!-- /.blog-main -->
-
-            <script>
-
-            // 发布评论
-            function comment(obj){
-                        var contents = $(obj).parents('.box-textarea').eq(0).find('.box-content').html();
-                        if(contents != '' && contents != '请先登录后发表评论'){
-                            var aid=$(obj).attr('aid'),
-                                pid=$(obj).attr('pid'),
-                                parent_name = $(obj).attr('parent_name'),
-                                postData={
-                                    "aid":aid,
-                                    "pid":pid,
-                                    "contents":contents
-                                };
-                            var url = '<?php echo site_url("comments/add") ;?>';
-                            $.post(url, postData, function(data) {
-                                var dataObj = JSON.parse(data);
-                                var newpid = dataObj.cid; // 评论pid
-                                var uid = dataObj.uid; // 用户id
-                                var nickname = dataObj.nickname; // 用户
-                                var headpath = "<?php echo site_url().'/uploads/avatar/';?>";
-                                var headimg = headpath+uid+".jpg";
-                                var replyName = $(obj).attr('username');
-                                var create_time = dataObj.create_time;
-                                // 获取当前时间
-                                var nickName=$('#b-login-word .b-nickname').text();
-                                if(pid==0){
-                                    // pid为0表示新增评论
-                                    var str = '<li class="media"><div class="media-left" href="#"><img class="media-object" src="'+headimg+'" alt="通用的占位符图像"></div><div class="media-body"><span class="p-time">'+create_time+'</span><span class="p-reply" onclick="reply(this)" pid="'+newpid+'" aid="'+aid+'" parent_name="'+nickname+'"ref="javascript:;"> 回复 </span><p class="p-comment">'+nickname+' ：'+contents+'</p></p></div></li>';
-                                    $('.media-list').prepend(str);
-                                }else{
-                                    // pid不为0表示是回复评论
-                                    var str = '<div class="media"><div class="media-left" href="#"><img class="media-object" src="'+headimg+'" alt="通用的占位符图像"></div><div class="media-body"><span class="p-time">'+create_time+'</span><span class="p-reply" onclick="reply(this)" pid="'+newpid+'" aid="'+aid+'" parent_name="'+parent_name+'" href="javascript:;"> 回复 </span><p class="p-comment">'+nickname+' @ '+parent_name+'：'+contents+'</p></p></div></div>';
-                                    //$(obj).parents(".media-body").css({"color":"red","border":"2px solid red"});
-                                    $(obj).parents('.media-body').eq(-1).append(str);
-                                    $(obj).parents('.box-textarea').eq(0).remove();
-                                }
-                            });
-                        }
-            }
-
-            </script>
 <?php $this->layout->right();?>
 <?php $this->layout->footer();?>
