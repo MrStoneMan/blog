@@ -59,7 +59,8 @@ class Link extends AdminBase{
         $data = array(
             'id' => $this->uri->segment(4)
         );
-        $data['link'] = $this->Link_model->byConditionsGetSelect('*','bl_link');
+
+        $data['link'] = $this->Link_model->byConditionsGetSelect('*','bl_link','',$data);
         $this->load->helper('form');
         $this->load->view('admin/link_edit.htm',$data);
     }
