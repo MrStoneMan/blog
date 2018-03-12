@@ -13,7 +13,7 @@ class Home extends CI_Controller{
         // 加载模型接受参数
         $this->load->library('layout');
         $this->load->model("Article_model");
-        $conditions = array();
+        $conditions = array("is_publish" => 1);
         $url = base_url().'home/index';
         $offset = $this->uri->segment(3);
         $segment = 3;
