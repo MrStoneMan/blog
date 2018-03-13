@@ -98,6 +98,7 @@ class Home extends CI_Controller{
         $config['last_tag_close'] = '</li>';  
         $config['num_tag_open'] = '<li>';  
         $config['num_tag_close'] = '</li>';  
+        $config['first_url']= '0';  
         $config['first_link']= '首页';  
         $config['next_link']= '下一页';  
         $config['prev_link']= '上一页';  
