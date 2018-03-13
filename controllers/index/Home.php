@@ -47,7 +47,7 @@ class Home extends CI_Controller{
         $this->load->library('layout');
         $this->load->model("Article_model");
         $tag_id = $this->uri->segment(3);
-        $conditions = 'bl_article.tag_id = '.$tag_id;
+        $conditions = 'bl_article.tag_id = '.$tag_id. ' and bl_article.is_publish = 1';
         $url = base_url().'home/tag/'.$tag_id.'/page';
         $offset = $this->uri->segment(5);
         $segment = 5;

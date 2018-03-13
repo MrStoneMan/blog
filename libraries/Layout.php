@@ -28,11 +28,11 @@ class Layout
         $data['tag'] = $this->CI->Tag_model->byConditionsGetSelect();
         foreach ($data['tag'] as $k => $v){
             $conditions = array(
-                'tag_id' => $data['tag'][$k]['id']
+                'tag_id' => $data['tag'][$k]['id'],
+                'is_publish' => 1 
             );
             $data['tag'][$k]['num'] = $this->CI->Article_model->byConditionsGetCount($conditions);
         }
-        
         // 最新文章
         $data['article'] = $this->CI->Article_model->byConditionsGetSelect('*','bl_article','','','id desc','','',5);
 
