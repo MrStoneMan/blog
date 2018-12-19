@@ -36,7 +36,7 @@ class Home extends CI_Controller{
             preg_match_all($preg,$v['content'],$a);
             $data['article'][$k]['img']  = isset($a[1][0]) ? $a[1][0] : "";
             $data['article'][$k]['content'] = strip_tags($v['content']);
-            $data['article'][$k]['date']  =  date("Y-m-d H:i",$v['create_time']);
+            $data['article'][$k]['date']  =  date("Y-m-d",$v['create_time']);
         }
         $this->load->view('index/index.htm',$data);
     }
@@ -71,7 +71,7 @@ class Home extends CI_Controller{
             preg_match_all($preg,$v['content'],$a);
             $data['article'][$k]['img']  = isset($a[1][0]) ? $a[1][0] : "";
             $data['article'][$k]['content'] = strip_tags($v['content']);
-            $data['article'][$k]['date']  =  date("Y-m-d H:i",$v['create_time']);
+            $data['article'][$k]['date']  =  date("Y-m-d",$v['create_time']);
         }
         $this->load->view('index/index.htm',$data);
     }
@@ -140,7 +140,7 @@ class Home extends CI_Controller{
             preg_match_all($preg,$v['content'],$a);
             $data['article'][$k]['img']  = isset($a[1][0]) ? $a[1][0] : "";
             $data['article'][$k]['content'] = strip_tags($v['content']);
-            $data['article'][$k]['date']  =  date("Y-m-d H:i",$v['create_time']);
+            $data['article'][$k]['date']  =  date("Y-m-d",$v['create_time']);
         }
         $this->load->view('index/index.htm',$data);
     }
