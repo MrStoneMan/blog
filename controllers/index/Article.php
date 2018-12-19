@@ -20,7 +20,7 @@ class Article extends CI_Controller{
         $group = '';
         $data['article'] = $this->Article_model->byConditionsGetSelect($filed, $table, $join, $conditions = 'bl_article.id = '.$id, $order,$group, $offset = null, $limit = null);
         foreach ($data['article'] as $k => $v){
-            $data['article'][$k]['date']  =  date("Y-m-d H:i",$v['create_time']);
+            $data['article'][$k]['date']  =  date("Y-m-d",$v['create_time']);
         }
 
         // 文章评论
